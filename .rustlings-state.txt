@@ -1,6 +1,6 @@
 DON'T EDIT THIS FILE!
 
-structs1
+structs3
 
 primitive_types1
 primitive_types2
@@ -15,3 +15,5 @@ move_semantics2
 move_semantics3
 move_semantics4
 move_semantics5
+structs1
+structs2

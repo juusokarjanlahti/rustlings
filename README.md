@@ -1,3 +1,4 @@
+**This is my personal repository for completing rustlings to learn the basics of Rust programming language.**
 
 # [Rustlings](https://rustlings.cool/)
 

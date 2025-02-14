@@ -28,6 +28,39 @@ mod my_module {
 
     // TODO: Complete the function as described above.
     // pub fn transformer(input: ???) -> ??? { ??? }
+
+    // create a public function called transformer
+    // as input we get a Vector that is a tuple of a string and a Command
+    // the output is a Vector array of strings we append to
+    pub fn transformer(input: Vec<(String, Command)>) -> Vec<String> {
+        // create a mutable vector to store the output that we will return
+        let mut output = Vec::new();
+
+        // iterate over the input vector by destructuring the tuple into a string and a command
+        for (mut string, command) in input {
+            // use match pattern to select action based on the command
+            // so for given command we will correctly transform the string from the tuple
+            match command {
+                // if the command matched is Uppercase we will transform the string to uppercase
+                Command::Uppercase => {
+                    string = string.to_uppercase();
+                }
+                // if the command matched is Trim we will trim the string
+                Command::Trim => {
+                    string = string.trim().to_string();
+                }
+                // if the command matched is Append we will append "bar" to the string a specified usize times
+                Command::Append(times) => {
+                    for _ in 0..times {
+                        string.push_str("bar");
+                    }
+                }
+            }
+            // push the transformed string to the output vector
+            output.push(string);
+        }
+        output
+    }
 }
 
 fn main() {
@@ -38,6 +71,7 @@ fn main() {
 mod tests {
     // TODO: What do we need to import to have `transformer` in scope?
     // use ???;
+    use super::my_module::transformer;
     use super::Command;
 
     #[test]
